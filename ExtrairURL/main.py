@@ -1,31 +1,28 @@
-url = "    htttp://bytebank.com/cambio?moedaDestino=dolar&quantidade=100&moedaOrigem=real    "
-##print(url)
-#url = '  '
+# Arquivo utilizado até a aula 3, quando então passamos a utilizar a classe
+# ExtratorURL no arquivo extrator_url.py
+url = "bytebank.com/cambio?quantidade=100&moedaOrigem=real&moedaDestino=dolar"
 
-#sanitização de url
+# Sanitização da URL
 url = url.strip()
 
-#validação de url
-if url == '':
-    raise ValueError("A URL esta vazia")
+# Validação da URL
+if url == "":
+    raise ValueError("A URL está vazia")
 
-indice_inter= url.find('?')
-url_base  = url[0:indice_inter]
-print(url_base)
+# Separa base e parâmetros
+indice_interrogacao = url.find('?')
+url_base = url[:indice_interrogacao]
+url_parametros = url[indice_interrogacao+1:]
+print(url_parametros)
 
-url_param = url[indice_inter+1:]
-print(url_param)
-
-
-
-param_buscar = 'moedaDestino'
-indice_param = url_param.find(param_buscar)
-indice_valor = indice_param + len(param_buscar) + 1
-indice_ecomerc = url_param.find('&', indice_valor)
-
-if indice_ecomerc ==-1:
-   valor = url_param[indice_valor:]
+# Busca o valor de um parâmetro
+parametro_busca = 'quantidade'
+indice_parametro = url_parametros.find(parametro_busca)
+indice_valor = indice_parametro + len(parametro_busca) + 1
+indice_e_comercial = url_parametros.find('&', indice_valor)
+if indice_e_comercial == -1:
+    valor = url_parametros[indice_valor:]
 else:
-    valor = url_param[indice_valor:indice_ecomerc]
+    valor = url_parametros[indice_valor:indice_e_comercial]
 
 print(valor)
