@@ -1,2 +1,3 @@
-idade[20,28,35,42]
-print(idade)
+idade = [20,28,35,42]
+for idade in idades:
+  print(idade + 1)
