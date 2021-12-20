@@ -7,7 +7,7 @@ conta2 = Conta(321, "pedro", 0.0, 1000.0)
 b = int(input('Acessar o terminal Digite [ 1 ] || Encerrar [ 0 ]: '))
 while (b == 1):
     cliente = Cliente()
-    if(cliente._Cliente__nome == conta._Conta__titular):
+    if (conta.titular == cliente.nome):
         a = 0
         while a != 5:
             if a >= 6 or a < 0:
@@ -29,7 +29,7 @@ while (b == 1):
                     print("----TRANFERIR----")
                     conta.transfere(float(input("INFORME O VALOR PARA TRANSFERÊNCIA: ")), conta2)
 
-    elif (cliente._Cliente__nome == conta2._Conta__titular):
+    elif (cliente.nome == conta2.titular):
         a = 0
         while a != 5 and a < 6:
             print("\n1-Depositar, 2-Sacar, 3-Extrato, 4-Transferencia, 5- p/Sair\n")
@@ -42,7 +42,7 @@ while (b == 1):
                 conta2.extrato()
             elif(a==4):
                 conta2.transfere(float(input("INFORME O VALOR PARA TRANSFERÊNCIA: ")), conta)
-    b = input('Acessar o terminal Y/N: ')
+    b = int(input('Acessar o terminal Digite [ 1 ] || Encerrar [ 0 ]: '))
 
 
 

@@ -1,9 +1,9 @@
 class Cliente:
     
     def __init__(self):
-        self.__nome = input("USer: ")
-    pass
+        self._nome = input("USer: ")
+
     @property
     def nome(self):
-        return self.__nome
+        return self._nome
 
